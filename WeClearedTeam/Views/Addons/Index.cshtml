@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WeClearedTeam.Models.Addon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron">
+    <h2><i class="fa fa-table" aria-hidden="true"></i> Liste des Addons</h2>
+
+    @if (!Model.Any())
+    {
+        <p>Aucun addon n'est enregistré.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Nom de l'addon</th>
+                    <th>Description</th>
+                    <th>Web Path</th>
+                    <th>Version</th>
+                    <th><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</th>
+                    <th><i class="fa fa-minus" aria-hidden="true"></i> Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var addon in Model)
+                {
+                    <tr class="priest black-forecolor">
+                        <td>@addon.Nom</td>
+                        <td>@addon.Description</td>
+                        <td>@addon.WebPath</td>
+                        <td>@addon.Version</td>
+                        <td><i class="fa fa-pencil-square-o" aria-hidden="true"></i> @Html.ActionLink("Modifier", "Edit", new { id = addon.Id }, new { Class = "black-forecolor" })</td>
+                        <td><i class="fa fa-minus" aria-hidden="true"></i> @Html.ActionLink("Supprimer", "Delete", new { id = addon.Id }, new { Class = "black-forecolor" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    @if (Request.IsAuthenticated)
+    {
+        <span class="btn btn-link">
+            <i class="fa fa-plus" aria-hidden="true"></i> @Html.ActionLink("Ajouter un Addon", "Create", "Addons")
+        </span>
+    }
+    else
+    {
+        <text>Vous devez être connecté pour pouvoir effectuer des changements.</text>
+
+    }
+</div>

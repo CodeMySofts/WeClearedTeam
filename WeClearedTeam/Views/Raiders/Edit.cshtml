@@ -1,0 +1,92 @@
+﻿@model WeClearedTeam.Models.Raider
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/site")
+<div class="jumbotron">
+    @if (Model != null)
+    {
+        using (Html.BeginForm())
+         {
+             @Html.AntiForgeryToken()
+
+             <div class="form-horizontal">
+                 <h4>Modifier @Model.Nom</h4>
+                 <hr/>
+                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                 @Html.HiddenFor(model => model.Id)
+                 
+                 <!--Nom du personnage-->
+                 <div class="form-group">
+                     @Html.LabelFor(model => model.Nom, htmlAttributes: new {@class = "control-label col-md-2"})
+                     <div class="col-md-10">
+                         @Html.EditorFor(model => model.Nom, new {htmlAttributes = new {@class = "form-control"}})
+                         @Html.ValidationMessageFor(model => model.Nom, "Nom de personnage", new {@class = "text-info" })
+                     </div>
+                 </div>
+                 
+                 <!--Sélecteur de classe-->
+                 <div class="form-group">
+                     @Html.LabelFor(model => model.Classe, htmlAttributes: new {@class = "control-label col-md-2"})
+                     <div class="col-md-10">
+                         @{
+                             // Variable de nom de classe, utilisée pour trouver le selected
+                             string classeName = Model.Classe.ToString().Replace('_', ' ');
+                         }
+                         <select class="form-control" data-val="true" data-val-required="Le champ Classe est requis." id="Classe" name="Classe">
+                             <option selected="selected" value="0"></option>
+                             <option value="1" @if (classeName == "Death Knight") {<text>selected="selected"</text> }>Death Knight</option>
+                             <option value="2" @if (classeName == "Demon Hunter") { <text>selected="selected"</text> }>Demon Hunter</option>
+                             <option value="3" @if (classeName == "Druid") { <text>selected="selected"</text> }>Druid</option>
+                             <option value="4" @if (classeName == "Hunter") { <text>selected="selected"</text> }>Hunter</option>
+                             <option value="5" @if (classeName == "Mage") { <text>selected="selected"</text> }>Mage</option>
+                             <option value="6" @if (classeName == "Monk") { <text>selected="selected"</text> }>Monk</option>
+                             <option value="7" @if (classeName == "Paladin") { <text>selected="selected"</text> }>Paladin</option>
+                             <option value="8" @if (classeName == "Priest") { <text>selected="selected"</text> }>Priest</option>
+                             <option value="9" @if (classeName == "Rogue") { <text>selected="selected"</text> }>Rogue</option>
+                             <option value="10" @if (classeName == "Shaman") { <text>selected="selected"</text> }>Shaman</option>
+                             <option value="11" @if (classeName == "Warlock") { <text>selected="selected"</text> }>Warlock</option>
+                             <option value="12" @if (classeName == "Warrior") { <text>selected="selected"</text> }>Warrior</option>
+                         </select>
+                         @Html.ValidationMessageFor(model => model.Classe, "Classe du personnage", new { @class = "text-info" })
+                     </div>
+                 </div>
+
+                 <!--Sélecteur de spécialisation-->
+                 <div class="form-group">
+                     <!--Input invisible qui permettra de récupérer la spécialisation facilement via le javascript-->
+                     <input type="hidden" data-val="false" id="SpecValue" value="@Model.Specialisation.ToString().Replace('_', ' ')">
+                     @Html.LabelFor(model => model.Specialisation, htmlAttributes: new {@class = "control-label col-md-2"})
+                     <div class="col-md-10">
+                         <select class="form-control" data-val="true" data-val-required="Le champ Specialisation est requis." id="Specialisation" name="Specialisation">
+                             <option selected="selected" value="0"></option>
+                         </select>
+                         @Html.ValidationMessageFor(model => model.Specialisation, "Spécialisation du personnage", new {@class = "text-info"})
+                     </div>
+                 </div>
+
+                 <div class="form-group">
+                     <div class="col-md-offset-2 col-md-10">
+                         <input type="submit" value="Enregistrer" class="btn btn-default"/>
+                     </div>
+                 </div>
+             </div>
+         }
+    }
+    else
+    {
+        <div class="alert alert-danger alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <h5>
+                L'élément que vous tentez de modifier est invalide.
+            </h5>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Retourner à la Liste des Raiders", "Index")
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>We Cleared</h1>
+    <p class="lead">Cette plate-forme à été conçue pour répondre aux besoins du groupe de raid We Cleared Kazakhstan.</p>
+    <ul>
+        <li>Enregistrer les raiders qui sont ou étaient dans le main raid de We Cleared Kazakhstan.</li>
+        <li>Mettre en disponibilité les addons utilisés par le groupe.</li>
+        <li>Regrouper les stratégies pour les raids.</li>
+        <li>Distribuer le lien permanent vers notre Discord.</li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Les core raiders</h2>
+        <p>
+            Voir la liste des raiders actuels ainsi que les ancien raiders.
+        </p>
+        @Html.ActionLink("Voir la liste", "Index", "Raiders")
+    </div>
+    <div class="col-md-4">
+        <h2>Voir les addons</h2>
+        <p>
+            Certains addons qui sont utilisés par les raideurs sont maintenus et mis en ligne ici.
+        </p>
+        @Html.ActionLink("Voir la liste", "Index", "Addons")
+    </div>
+    <div class="col-md-4">
+        <h2>Stratégies de raid</h2>
+        <p>
+            Présentation des stratégies actuellement utilisées pour certains boss qui requièrement plus de positionnement et d'assignations.
+        </p>
+        <p><a class="btn btn-default">Voir la liste &raquo;</a></p>
+    </div>
+</div>

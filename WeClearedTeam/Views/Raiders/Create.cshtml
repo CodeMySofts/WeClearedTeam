@@ -1,0 +1,84 @@
+﻿@using WeClearedTeam.Models
+@model WeClearedTeam.Models.Raider
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/site")
+<div class="jumbotron">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @if (ViewBag.Commentaire != null)
+            {
+                <div class="alert alert-danger alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <h5>
+                        @ViewBag.Commentaire
+                    </h5>
+                </div>
+            }
+            <h4>Ajouter un raider</h4>
+            <hr/>
+            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+            
+            <!--Nom du personnage-->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nom, htmlAttributes: new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nom, new {htmlAttributes = new {@class = "form-control", @Value = ViewBag.NomChoisi } })
+                    @Html.ValidationMessageFor(model => model.Nom, "Nom de personnage", new {@class = "text-info" })
+                </div>
+            </div>
+
+            <!--Classe du personnage-->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Classe, htmlAttributes: new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    <select class="form-control" data-val="true" data-val-required="Le champ Classe est requis." id="Classe" name="Classe">
+                        <option selected="selected" value="0"></option>
+                        <option value="1">Death Knight</option>
+                        <option value="2">Demon Hunter</option>
+                        <option value="3">Druid</option>
+                        <option value="4">Hunter</option>
+                        <option value="5">Mage</option>
+                        <option value="6">Monk</option>
+                        <option value="7">Paladin</option>
+                        <option value="8">Priest</option>
+                        <option value="9">Rogue</option>
+                        <option value="10">Shaman</option>
+                        <option value="11">Warlock</option>
+                        <option value="12">Warrior</option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Classe, "Classe du personnage", new { @class = "text-info" })
+                    
+                </div>
+            </div>
+            
+            <!--Spécialisation du personnage-->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Specialisation, htmlAttributes: new {@class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    <select class="form-control" data-val="true" data-val-required="Le champ Specialisation est requis." id="Specialisation" name="Specialisation">
+                        <option selected="selected" value="0"></option>
+                    </select>
+                    @Html.ValidationMessageFor(model => model.Specialisation, "Spécialisation du personnage", new {@class = "text-info"})
+                </div>
+            </div>
+            
+            <!--Bouton d'envoi du formulaire-->
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Créer" class="btn btn-default"/>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Retourner à la Liste des Raiders", "Index")
+    </div>
+</div>

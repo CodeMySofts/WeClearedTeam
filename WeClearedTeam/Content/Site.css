@@ -1,0 +1,77 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.black-forecolor,
+a:hover {
+    color: black;
+}
+
+.death_knight {
+    background-color: rgb(196, 30, 59);
+}
+
+.demon_hunter {
+    background-color: rgb(163, 48, 201);
+}
+
+.druid {
+    background-color: rgb(255, 125, 10);
+}
+
+.hunter {
+    background-color: rgb(171, 212, 115);
+}
+
+.mage {
+    background-color: rgb(105, 204, 240);
+}
+
+.monk {
+    background-color: rgb(0, 255, 150);
+}
+
+.paladin {
+    background-color: rgb(245, 140, 186);
+}
+
+.priest {
+    background-color: rgb(255, 255, 255);
+}
+
+.rogue {
+    background-color: rgb(255, 245, 105);
+}
+
+.shaman {
+    background-color: rgb(0, 112, 222);
+}
+
+.warlock {
+    background-color: rgb(148, 130, 201);
+}
+
+.warrior {
+    background-color: rgb(199, 156, 110);
+}
