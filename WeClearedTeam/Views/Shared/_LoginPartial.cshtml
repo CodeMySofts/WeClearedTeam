@@ -1,24 +1,35 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item nav-link">
-            @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li class="nav-item nav-link">
-            <a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a>
-        </li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    
+    <li class="client-link">
+        <a href="~/api/weclearedclient/downloadinstaller/1">Addons Client</a>
+    </li>
+    <li class="discord-link">
+        <a href="https://discordapp.com/invite/RmUTvnq?utm_medium=Connect" target="_blank" data-reactid=".0.2.1">Discord</a>
+    </li>
+
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+        {
+            @Html.AntiForgeryToken()
+
+            <li class="nav-item nav-link">
+                @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
+            </li>
+            <li class="nav-item nav-link">
+                <a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a>
+            </li>
+        }
     }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item nav-link">@Html.ActionLink("S’inscrire", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
-        <li class="nav-item nav-link">@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-    </ul>
-}
+    else
+    {
+        <!--
+
+        <li class="nav-item nav-link">@Html.ActionLink("Inscription", "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink"})
+        <li class="nav-item nav-link">@Html.ActionLink("Connection", "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink"})
+        -->
+    }
+
+</ul>

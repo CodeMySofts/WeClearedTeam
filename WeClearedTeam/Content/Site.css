@@ -75,3 +75,57 @@ a:hover {
 .warrior {
     background-color: rgb(199, 156, 110);
 }
+
+.discord-link a {
+    align-items: center;
+    background-color: rgb(114, 137, 218);
+    border-bottom-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: flex;
+    font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 40px;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    position: relative;
+    text-align: center;
+    width: 90px;
+}
+
+.client-link a {
+    align-items: center;
+    background-color: rgb(196, 30, 59);
+    border-bottom-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: flex;
+    font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 40px;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    position: relative;
+    text-align: center;
+    width: 160px;
+}

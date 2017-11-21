@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,14 +8,17 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active nav-link">
-                @Html.ActionLink("Raiders", "Index", "Raiders")
-            </li>
-            <li class="nav-item active nav-link">
-                @Html.ActionLink("Addons", "Index", "Addons")
+            <li class="nav-item nav-link">
+                @Html.ActionLink("Historique", "Historique", "Home")
             </li>
             <li class="nav-item nav-link">
-                @Html.ActionLink("Contact", "Contact", "Home")
+                @Html.ActionLink("Reglements", "Reglements", "Home")
+            </li>
+            <li class="nav-item nav-link">
+                <a href="https://drive.google.com/drive/folders/1tgCK2QmERotTqPkjWxjQ1IfZYstZve2Q?usp=sharing" target="_blank">Stratégies</a>
+            </li>
+            <li class="nav-item nav-link">
+                @Html.ActionLink("Addons Client", "ExplicationsClient", "Home")
             </li>
         </ul>
         @Html.Partial("_LoginPartial")

@@ -15,6 +15,7 @@ namespace WeClearedTeam.Controllers
         /// Retourne tout les addons proposés par le client ainsi que les descriptions et versions.
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public IEnumerable<Addon> Get()
         {
             var addonsList = db.Addons;

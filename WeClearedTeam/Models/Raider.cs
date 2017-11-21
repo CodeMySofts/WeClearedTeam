@@ -189,5 +189,7 @@ namespace WeClearedTeam.Models
         public DbSet<Raider> Raiders { get; set; }
 
         public DbSet<Addon> Addons { get; set; }
+
+        public DbSet<WeClearedClientVersion> ClientVersions { get; set; }
     }
 }

@@ -1,38 +1,55 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Page Principale";
 }
 
 <div class="jumbotron">
-    <h1>We Cleared</h1>
-    <p class="lead">Cette plate-forme à été conçue pour répondre aux besoins du groupe de raid We Cleared Kazakhstan.</p>
+    <p class="lead">Ce site à été réalisé pour répondre aux besoins du groupe de raid We Cleared Kazakhstan.</p>
     <ul>
-        <li>Enregistrer les raiders qui sont ou étaient dans le main raid de We Cleared Kazakhstan.</li>
-        <li>Mettre en disponibilité les addons utilisés par le groupe.</li>
-        <li>Regrouper les stratégies pour les raids.</li>
-        <li>Distribuer le lien permanent vers notre Discord.</li>
+        <li>Présenter l'<a href="~/home/historique">histoire de la guilde</a>.</li>
+        <li>
+            Permettre aux nouveaux arrivants de 
+            <a href="https://discordapp.com/invite/RmUTvnq?utm_medium=Connect">rejoindre notre serveur Discord</a>.
+        </li>
+        <li>Mettre en disponibilité le <a href="~/home/explicationsclient" target="_blank">gestionnaire d'addons</a> utilisé par le groupe.</li>
+        <li>
+            Lien permanent vers le 
+            <a href="https://drive.google.com/drive/folders/1tgCK2QmERotTqPkjWxjQ1IfZYstZve2Q?usp=sharing">dossier des stratégies de raid</a>.
+        </li>
+        <li>Présenter les <a href="~/home/reglements">règles de conduite, de loots et de raiding</a>.</li>
     </ul>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Les core raiders</h2>
+        <h2>Gestionnaire d'addons</h2>
         <p>
-            Voir la liste des raiders actuels ainsi que les ancien raiders.
+            Certains addons qui sont utilisés par les raideurs sont maintenus et mis en ligne via notre client. 
+            Vous pouvez télécharger le client ici ou en clickant le bouton rouge dans la barre de navigation.
         </p>
-        @Html.ActionLink("Voir la liste", "Index", "Raiders")
-    </div>
-    <div class="col-md-4">
-        <h2>Voir les addons</h2>
         <p>
-            Certains addons qui sont utilisés par les raideurs sont maintenus et mis en ligne ici.
+            @Html.ActionLink("En savoir plus", "ExplicationsClient", "Home")
         </p>
-        @Html.ActionLink("Voir la liste", "Index", "Addons")
+        @if (Request.IsAuthenticated)
+        {
+            <p>
+                @Html.ActionLink("Voir la liste", "Index", "Addons")
+            </p>
+        }
     </div>
     <div class="col-md-4">
         <h2>Stratégies de raid</h2>
         <p>
             Présentation des stratégies actuellement utilisées pour certains boss qui requièrement plus de positionnement et d'assignations.
         </p>
-        <p><a class="btn btn-default">Voir la liste &raquo;</a></p>
+        <p><a href="https://drive.google.com/drive/folders/1tgCK2QmERotTqPkjWxjQ1IfZYstZve2Q?usp=sharing" target="_blank">Voir le dossier</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Règles de conduite</h2>
+        <p>
+            Comme dans chaque communautés, nous avons certaines règles de base à respecter. Connaître les règles et s'y conformer est la responsabilité de tous.
+        </p>
+        <p>
+            @Html.ActionLink("Voir les regles de conduite", "Reglements", "Home")
+        </p>
     </div>
 </div>

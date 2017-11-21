@@ -9,7 +9,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using System.Windows.Forms;
-using WeClearedTeam.Migrations;
 using WeClearedTeam.Models;
 
 namespace WeClearedTeam.AddonsServer
@@ -33,9 +32,9 @@ namespace WeClearedTeam.AddonsServer
         private AddonsParserContext AddonsDataBase = new AddonsParserContext();
 
         /// <summary>
-        /// Path to the folder where the addons will be stored. Addon folder should be Addon.Nom.ToString().Replace(' ','');
+        /// Path to the folder where the addons will be stored.
         /// </summary>
-        public string AddonsPath = @"C:\Addons\";
+        public string AddonsPath = @"C:\Users\Patrick\Google Drive\SitesWebs\Addons\";
 
         /// <summary>
         /// Class qui contien les fonctions d'extraction.

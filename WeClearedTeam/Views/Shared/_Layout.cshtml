@@ -4,9 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - We Cleared Team</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - We Cleared</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/tether")
+        @Scripts.Render("~/bundles/site")
 
 </head>
 <body>
@@ -15,7 +17,16 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - We Cleared Team</p>
+            <div class="row">
+                <div class="col-sm-4">
+                    <p>&copy; @DateTime.Now.Year - We Cleared </p>
+                </div>
+                <div class="col-sm-7">
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Contact", "Contact", "Home")
+                </div>
+            </div>
         </footer>
     </div>
 

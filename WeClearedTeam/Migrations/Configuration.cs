@@ -5,15 +5,14 @@ namespace WeClearedTeam.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WeClearedTeam.Models.HangfireContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<WeClearedTeam.Models.WeClearedDBContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WeClearedTeam.Models.HangfireContext context)
+        protected override void Seed(WeClearedTeam.Models.WeClearedDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 
